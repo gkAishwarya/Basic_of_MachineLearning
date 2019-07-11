@@ -1,0 +1,11 @@
+#Counts number of charcters,words and lines in a given string.
+
+s='''hi ma'm good evening
+how r u
+bye bye'''
+print("length of string:", len(s))
+print("Number of characters",len(s))
+b=s.split('\n')
+print("Number of lines: ",len(b))
+a=s.split()
+print("Number of words:",len(a))
