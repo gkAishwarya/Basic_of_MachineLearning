@@ -1,0 +1,32 @@
+import pandas as pd
+a=[100,200,300]
+ser=pd.Series(a)
+print(ser[ser.values.argmin()])
+print(ser.mean())
+c=pd.DataFrame({
+    'Country' :['India','US','China'],
+    'Capital':['Delhi','Washington','Begjin'],
+    'population':[1256362,65655,6497413]
+})
+print(c,'\n')
+#Accessing only country column
+print(c['Country'],'\n')
+
+#Accessing only india's capital
+print(c['Capital'][0])
+
+#Getting max in population
+print(c['population'].max())
+
+#getting whole row by quering the condition
+print(c[c['population']==c['population'].max()])
+
+#To access file data(csv)
+df=pd.read_csv('data1.csv')
+print(df)
+print("Mean of student marks: ",df['Marks'].mean())
+print("Highest Rank is:\n",df[df['Marks']==df['Marks'].max()])
+print("\n\n",df[df['Age']==22])
+#To access text file content
+tf=pd.read_table('data2.txt')
+print(tf)
