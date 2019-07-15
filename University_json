@@ -1,0 +1,17 @@
+import pandas as pd
+#Defining dataframe of json dataset
+uni=pd.DataFrame({
+    'Name':['Asha','Ganesh','Ramesh','Aditya','Divya','Deepa','Daya','Raj','Rahul'],
+    'USN':[1,2,3,4,5,6,7,8,9],
+    'Sem':[7,7,6,6,5,5,4,4,6],
+    'Branch':['cse','cse','ece','eee','civil','ise','ise','ece','eee'],
+    'Score':[95,94,80,87,75,74,60,72,88],
+    'Phone':[2165464531,9554654552,9325416842,5465232236,8157931462,7226423616,8484651321,8484351213,8798456135]
+})
+print(uni,'\n')
+print("Highest Rank:\n",uni[uni['Score']==uni['Score'].max()])
+print("Minimum Score:\n",uni[uni['Score']==uni['Score'].min()])
+print("Students Score above 85 are: \n",uni[uni['Score']>=85])
+print('\n')
+print("Score of Asha: ",uni.loc[0]['Score'],'\n')
+uni=uni.reindex(['a','b','c','d','e','f','g','h','i','j'])
