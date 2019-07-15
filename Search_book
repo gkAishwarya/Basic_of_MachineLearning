@@ -1,0 +1,11 @@
+import pandas as pd
+
+df=pd.DataFrame({
+    'Book_name':['Data Structure','Introduction to Algorithms','Design Patterns','Code complete','Artificial intelligence','Compliers','Algorithm design','Java','Code book','File structures'],
+    'Author_Name':['Padma reddy','Thomas','Erich gamma','Steave','stuart','Alfred','jon','Alex','Simon','Micheal']
+})
+print(df)
+inp=input("Enter ending letters of author name to get book name: ")
+print(df[df['Author_Name'].str.endswith(inp)])
+inp=input("Enter starting letters of author name to get book name: ")
+print(df[df['Author_Name'].str.startswith(inp)])
