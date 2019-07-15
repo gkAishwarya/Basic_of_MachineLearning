@@ -2,10 +2,14 @@ import pandas as pd
 
 df=pd.DataFrame({
     'Book_name':['Data Structure','Introduction to Algorithms','Design Patterns','Code complete','Artificial intelligence','Compliers','Algorithm design','Java','Code book','File structures'],
-    'Author_Name':['Padma reddy','Thomas','Erich gamma','Steave','stuart','Alfred','jon','Alex','Simon','Micheal']
+    'Author_Name':['Padma reddy','Thomas','Erich gamma','Steave','stuart','Alfred','jon','Alex','Simon','Micheal'],
+    'Age':[35,27,55,48,65,77,30,35,35,55]
 })
 print(df)
 inp=input("Enter ending letters of author name to get book name: ")
 print(df[df['Author_Name'].str.endswith(inp)])
 inp=input("Enter starting letters of author name to get book name: ")
 print(df[df['Author_Name'].str.startswith(inp)])
+#Counting the group of ages of authors.
+gf=df.groupby(['Age'])['Age'].count()
+print(gf)
