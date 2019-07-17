@@ -1,0 +1,33 @@
+import pandas as pd
+
+#Defining dataframe of json dataset
+uni=pd.DataFrame({
+    'Name':['Asha','Ganesh','Ramesh','Aditya','Divya','Deepa','Daya','Raj','Rahul'],
+    'USN':[1,2,3,4,5,6,7,8,9],
+    'Sem':[7,7,6,6,5,5,4,4,6],
+    'Branch':['cse','cse','ece','eee','civil','ise','ise','ece','eee'],
+    'Score':[95,94,80,87,75,74,60,72,88],
+    'Phone':[2165464531,9554654552,9325416842,5465232236,8157931462,7226423616,8484651321,8484351213,8798456135]
+})
+print(uni,'\n')
+print("Highest Rank:\n",uni[uni['Score']==uni['Score'].max()])
+print("Minimum Score:\n",uni[uni['Score']==uni['Score'].min()])
+print("Students Score above 85 are: \n",uni[uni['Score']>=85])
+print('\n')
+print(uni.loc[0]['Score'],'\n')
+uni=uni.reindex(['a','b','c','d','e','f','g','h','i','j'])    #changing index
+
+OR
+
+#Defining dataframe in csv file and performing operations.
+print("Accessing by file\n")
+df=pd.read_csv('data1.csv')
+print(df)
+print("Statistics of student data:\n",df.describe())
+print("Maximum Student Score:\n",df[df['Score']==df['Score'].max()])
+print("Students belonging to Hubli region:\n",df[df['Region']=='hubli'])
+print("Student of 7th sem:\n",df[df['Sem']==7])
+print("Student of 6th sem:\n",df[df['Sem']==6])
+print("Student of 5th sem:\n",df[df['Sem']==5])
+print("Capitalizing the names:\n",df['Name'].str.capitalize())    #capitalizing the name data column
+print(df.rename(index={0:'a',1:'b',2:'c',3:'d',4:'e',5:'f',6:'g',7:'h',8:'i',9:'j'}))   #changing index
