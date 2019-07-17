@@ -1,0 +1,65 @@
+#In sample.py file
+
+from flask import Flask,render_template,request
+app=Flask(__name__)
+
+@app.route('/submit',methods=['GET','POST'])          #For addition of values
+def index1():
+    v1=request.form.get('val1',type=int)
+    v2=request.form.get('val2',type=int)
+    return 'Result: ' +str(v1+v2)
+
+@app.route('/submit1',methods=['GET','POST'])         #For subtraction of values
+def index2():
+    va1=request.form.get('val1',type=int)
+    va2=request.form.get('val2',type=int)
+    return 'Result: ' +str(va1-va2)
+
+@app.route('/submit2',methods=['GET','POST'])         #For multiplication of values
+def index3():
+    v1=request.form.get('val1',type=int)
+    v2=request.form.get('val2',type=int)
+    return 'Result: ' +str(v1*v2)
+
+@app.route('/submit3',methods=['GET','POST'])         #For division of values
+def index4():
+    v1=request.form.get('val1',type=int)
+    v2=request.form.get('val2',type=int)
+    return 'Result: ' +str(v1/v2)
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+if __name__=="__main__":
+    app.run()
+    
+#In index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="/static/style.css">
+<head>
+    <meta charset="UTF-8">
+    <title>sample</title>
+</head>
+<body>
+<center><h1>Hello Everyone</h1><hr>
+    <h3>Python programming...</h3>
+    <form action="/submit" name="myform" method="post">
+        Value 1: <input type="text" name="val1" id="val1"><br/><br/>
+        Value 2: <input type="text" name="val2" id="val2"><br/><br/>
+        <button type="submit" class="btn btn-primary">ADD</button>
+        <button type="submit" class="btn btn-primary" onclick="javascript: form.action='/submit1';">SUBTRACT</button>
+        <button type="submit" class="btn btn-primary" onclick="javascript: form.action='/submit2';">MULTIPLY</button>
+        <button type="submit" class="btn btn-primary" onclick="javascript: form.action='/submit3';">DIVIDE</button>
+    </form></center>
+</body>
+</html>
+
+#In style.css
+
+h1{
+color:red;
+}
