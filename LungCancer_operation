@@ -1,0 +1,23 @@
+#Download the lungcancer dataset from uci repositary and run the below code.
+
+import pandas as pd
+lc=pd.read_csv('lung-cancer.data')
+print(lc)
+print("the data set after removing the index values and column names are:")
+print(lc.to_string(index = False,header=False))
+print("the values are")
+print(lc.values)
+print("to print only 2 rows")
+print(lc.head(2))
+print("to print last 2 rows")
+print(lc.tail(2))
+print("description is:")
+print(lc.describe())
+#to print the axes
+print("Axes is")
+print(lc.axes)
+print("mean along rows")
+print(lc.mean(axis=0))
+print("mean along columns")
+print(lc.mean(axis=1))
+print(lc.groupby(['1.14']).groups)
