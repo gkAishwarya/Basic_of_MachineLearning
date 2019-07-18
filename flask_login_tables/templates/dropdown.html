@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<head>
+    <meta charset="UTF-8">
+    <title>Tables.com</title>
+</head>
+<body>
+<center><div style="background-color:lightgreen; position:absolute; left:550px; top:200px; width:600px; height:250px; border:2px solid black; border-radius:25px;">
+    <form action="/table" method="post">
+        <br/><h4>Select the number to get its tables:</h4><br/>
+    <select id="mylist" name="mylist">
+        {% for i in lst %}
+            <option value="{{ i }}">{{ i }}</option>
+        {% endfor %}
+    </select><br/><br/>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form></div></center>
+</body>
+</html>
