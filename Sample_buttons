@@ -1,0 +1,125 @@
+#In main.py file
+
+from flask import Flask,render_template
+ap=Flask(__name__)
+@ap.route('/')
+def index():
+    return render_template('next.html')
+
+@ap.route('/home')
+def index1():
+    return """
+    <html>
+    <link rel="stylesheet" href="/static/style.css">
+    <body>
+    <center><h1>Sample.com</h1><hr>
+    <h2>WELCOME</h2>
+    <img src="https://photos.smugmug.com/Landscapes/Inland/i-8TvSCJL/4/04affaaf/O/Tree%20Lined%20Road.jpg" alt="Sample.com">
+    </center>
+    </body>
+    </html>
+    """
+
+@ap.route('/about')
+def index2():
+    return render_template('next1.html')
+
+@ap.route('/contact')
+def index3():
+    return """
+    <html>
+    <body><center>
+    <div style="font-size:30px; ">
+    <h3>Contact Details:</h3>
+    <h4>Email:sample@hotmail.com<br/>Contact number:+91-8456321795</h4>
+    </center></div></body>
+    </html>
+    """
+
+@ap.route('/feedback')
+def index4():
+    return render_template('next2.html')
+
+@ap.route('/end')
+def index5():
+    return """
+    <html>
+    <body>
+    <h1 align='center'>Thank You...!!</h1>
+    </body>
+    </html>
+    """
+
+if __name__=="__main__":
+    ap.run()
+    
+#In next.html
+
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="/static/style.css">
+<head>
+    <title>Greeting</title>
+</head>
+<body>
+<center><h1>Sample.com</h1></center><hr>
+<div>
+<button type="submit" class="button"><a href="/home" style="text-decoration:none; color:black;">Home</a></button>
+<button type="submit" class="button"><a href="/about" style="text-decoration:none; color:black;">About us</a></button>
+    <button type="submit" class="button"><a href="/contact" style="text-decoration:none; color:black;">Contact</a></button>
+    <button type="submit" class="button"><a href="/feedback" style="text-decoration:none; color:black;">Feedback</a></button><br/>
+</div></body>
+</html>
+
+#In next1.html
+
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="/static/style.css">
+<head>
+    <meta charset="UTF-8">
+    <title>About US</title>
+</head>
+<body><center><h1>About Sample.com</h1><br/>
+<h3><div style="font-size:26px;">Our web site gives the sample for web development using python on flask.
+This is helpful for the people who are intrested in learning the flask web framework.
+    It uses html,css and python flask framework to design this simple web page.
+To explore more and to contact us go to the menu page get the details.</div>
+</h3></center></body>
+</html>
+
+#In next2.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Feedback Page</title>
+</head>
+<body>
+<center>
+    <h1>To give the feedback fill the below form:</h1><hr>
+<form action="/end" method="get" name="feedback">
+    Enter E-mail: <input type="text" name="email" id="mail"><br/><br/><br/>
+    Enter Message: <textarea rows="5" cols="20" name="msg" id="msg"></textarea><br/><br/>
+    <button type="submit">SUBMIT</button>
+</form>
+</center>
+</body>
+</html>
+
+#In style.css
+
+h1
+{
+color:red;
+}
+h2{
+color:brown;
+}
+.button{
+padding:16px 32px;
+font-size:36px;
+margin:20px;
+display:inline-block;
+}
