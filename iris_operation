@@ -19,7 +19,7 @@ attributes = ["sepal_length", "sepal_width", "petal_length", "petal_width", "cla
 df.columns = attributes
 print(df.head())
 
-#direct retriving iris dataset.
+#direct retriving iris dataset.For this download iris.data from uci repositary.
 i=pd.read_csv('iris.data')
 i.columns=['sepal_length','sepal_width','petal_length','petal_width','type']
 print(i)
