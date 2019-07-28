@@ -1,0 +1,125 @@
+<html>
+<head>
+	<title>START GAME...</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="/static/images_f/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/vendor_f/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/fonts_f/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/fonts_f/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/vendor_f/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/vendor_f/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/vendor_f/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/vendor_f/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/vendor_f/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/css_f/util.css">
+	<link rel="stylesheet" type="text/css" href="/static/css_f/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+	<div class="container-contact100">
+		<div class="contact100-map"  style="background-image: url(/static/images_f/black_tile.jpg);"></div>
+		<div id="timer" style="background-color:white; position:absolute; top:5%;right:5%; font-size:40pt; color:black; padding:20px;">
+		</div>
+		<div class="wrap-contact100">
+			<div class="contact100-form-title" style="background-image: url(/static/images_f/bg-01.jpg);">
+				<span class="contact100-form-title-2">
+					Given text:
+				</span><br/>
+				<span class="contact100-form-title-1">
+					{{ str }}
+				</span>
+			</div>
+
+			<form class="contact100-form validate-form" action="/next" method="post">
+				<div class="wrap-input100 validate-input" data-validate="Name is required">
+					<span class="label-input100">Number of Lines:</span>
+					<input class="input100" type="text" name="lines" placeholder="Enter no. of lines">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+					<span class="label-input100">Number of Words:</span>
+					<input class="input100" type="text" name="words" placeholder="Enter no. of words">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate="Phone is required">
+					<span class="label-input100">Number of Charcters:</span>
+					<input class="input100" type="text" name="chart" placeholder="Enter no.of charcters">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="container-contact100-form-btn">
+					<button class="contact100-form-btn" type="submit">
+						<span>
+							Submit
+							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+						</span>
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+	<script src="/static/vendor_f/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/vendor_f/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/vendor_f/bootstrap/js/popper.js"></script>
+	<script src="/static/vendor_f/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/vendor_f/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/vendor_f/daterangepicker/moment.min.js"></script>
+	<script src="/static/vendor_f/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/vendor_f/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+
+	<script src="/static/js_f/map-custom.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/js_f/main.js"></script>
+<script type="text/javascript">
+
+var timeoutHandle;
+function countdown(minutes,seconds){
+ function tick(){
+  var counter=document.getElementById("timer");
+
+  counter.innerHTML=minutes.toString()+":" + (seconds<10 ? "0" : "")+ String(seconds);
+  seconds--;
+  if(seconds>=0) {
+  timeoutHandle=setTimeout(tick,1000);
+  }else {
+   if(minutes>=1) {
+   setTimeout(function() {
+   countdown(minutes-1,59);
+   }, 1000);
+   }
+   else {window.location = "/timeup";}
+  }
+ }
+ tick();
+ }
+ countdown(1,30);
+
+</script>
+
+</body>
+</html>
